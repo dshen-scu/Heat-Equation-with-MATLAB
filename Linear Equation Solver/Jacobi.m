@@ -1,9 +1,12 @@
 function [x_next] = Jacobi(A, b, x, iter)
 
-% Jacobi Method solves the (square) system of linear equations A*x = b,
-% with 'iter' as number of iterations, x as initial guess
-% Write A = D + R, D : diag(a11, a22, ... ), R = A - D
-% The convergence condition is spectral radius of D^-1 * R < 1.
+%{
+    Jacobi Method solves the (square) system of linear equations A*x = b,
+    with 'iter' as number of iterations
+    x as initial guess
+    Write A = D + R where, D := diag(a11, a22, ... ), R := A - D.
+    The convergence condition is (spectral radius of D^-1 * R) < 1.
+%}
 
 % Find size of matrix A
 row = length(A);
@@ -25,3 +28,4 @@ for k = 1 : iter
     end
     x_prev = x_next;
 end
+
