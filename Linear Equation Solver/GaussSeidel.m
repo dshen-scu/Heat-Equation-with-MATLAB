@@ -1,5 +1,3 @@
-function [x] = GaussSeidel(A, b, x, iter)
-
 %{
     Gauss-Seidel Method,
     for solving a square system of linear equations A * x = b.
@@ -11,6 +9,7 @@ function [x] = GaussSeidel(A, b, x, iter)
     - strictly or irreducibly diagonally dominant
 %}
 
+function [x] = GaussSeidel(A, b, x, iter)
     row = length(A);
     for k = 1 : iter
         for i = 1 : row
