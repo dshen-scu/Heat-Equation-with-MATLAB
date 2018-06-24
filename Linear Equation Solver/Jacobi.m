@@ -1,5 +1,3 @@
-function [x_next] = Jacobi(A, b, x, iter)
-
 %{
     Jacobi Method solves the (square) system of linear equations A*x = b,
     with 'iter' as number of iterations
@@ -8,10 +6,12 @@ function [x_next] = Jacobi(A, b, x, iter)
     The convergence condition is (spectral radius of D^-1 * R) < 1.
 %}
 
+function [x_next] = Jacobi(A, b, x, iter)
+
 % Find size of matrix A
 row = length(A);
 
-% Set initial guess of x as 1/n (1, 1, ... , 1)
+% Vector to hold iteration values
 x_prev = x;
 x_next = zeros(row, 1);
 
