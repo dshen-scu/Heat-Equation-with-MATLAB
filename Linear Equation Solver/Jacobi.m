@@ -6,8 +6,7 @@ function [x_next] = Jacobi(A, b, iter)
 % The convergence condition is spectral radius of D^-1 * R < 1.
 
 % Find size of matrix A
-sizeA = size(A);
-row = sizeA(1, 2);
+row = length(A);
 
 % Set initial guess of x as 1/n (1, 1, ... , 1)
 x_prev = ones(row, 1) / row;
@@ -26,3 +25,4 @@ for k = 1 : iter
     end
     x_prev = x_next;
 end
+
