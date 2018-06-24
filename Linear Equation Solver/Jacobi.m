@@ -1,7 +1,7 @@
-function [x_next] = Jacobi(A, b, iter)
+function [x_next] = Jacobi(A, b, x, iter)
 
 % Jacobi Method solves the (square) system of linear equations A*x = b,
-% with 'iter' as number of iterations
+% with 'iter' as number of iterations, x as initial guess
 % Write A = D + R, D : diag(a11, a22, ... ), R = A - D
 % The convergence condition is spectral radius of D^-1 * R < 1.
 
@@ -9,7 +9,7 @@ function [x_next] = Jacobi(A, b, iter)
 row = length(A);
 
 % Set initial guess of x as 1/n (1, 1, ... , 1)
-x_prev = ones(row, 1) / row;
+x_prev = x;
 x_next = zeros(row, 1);
 
 % A = D + R, x_next = D^-1 ( b - R * x_prev)
@@ -25,4 +25,3 @@ for k = 1 : iter
     end
     x_prev = x_next;
 end
-
